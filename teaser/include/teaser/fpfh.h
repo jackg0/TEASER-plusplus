@@ -21,9 +21,9 @@ using FPFHCloudPtr = pcl::PointCloud<pcl::FPFHSignature33>::Ptr;
 
 class FPFHEstimation {
 public:
-  FPFHEstimation()
+  FPFHEstimation(unsigned int n_threads = 0)
       : fpfh_estimation_(
-            new pcl::FPFHEstimationOMP<pcl::PointXYZ, pcl::Normal, pcl::FPFHSignature33>){};
+            new pcl::FPFHEstimationOMP<pcl::PointXYZ, pcl::Normal, pcl::FPFHSignature33>(n_threads)){};
 
   /**
    * Compute FPFH features.
